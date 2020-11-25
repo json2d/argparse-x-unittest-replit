@@ -19,15 +19,12 @@ if __name__ == '__main__':
 
     a = p.parse_args()
 
-    # read config file, optionally for a specific context
     if a.msg:
 
         TestHello.MSG = a.msg
 
-    # workaround
-
+    # bypass unittest reading the arguments and skip ahead to running tests
     # from: https://stackoverflow.com/a/20266206
-
     runner = unittest.TextTestRunner()
     itersuite = unittest.TestLoader().loadTestsFromTestCase(TestHello)
     runner.run(itersuite)

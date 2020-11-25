@@ -24,4 +24,10 @@ if __name__ == '__main__':
 
         TestHello.MSG = a.msg
 
-    unittest.main()
+    # workaround
+
+    # from: https://stackoverflow.com/a/20266206
+
+    runner = unittest.TextTestRunner()
+    itersuite = unittest.TestLoader().loadTestsFromTestCase(TestHello)
+    runner.run(itersuite)
